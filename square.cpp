@@ -12,11 +12,11 @@ private:
 
 public:
     void setSide(float length);
-    float findArea();
-    float findPerimeter();
-    Square (); // default constructor
-    Square (float length); // overload?
-   ~Square(); // destructor
+    float findArea() const;
+    float findPerimeter() const;
+   //Square ();
+   //Square (float length);
+   //~Square();
 	
 };
 
@@ -28,19 +28,18 @@ int main()
    // FILL IN THE CLIENT CODE THAT WILL ASK THE USER FOR THE LENGTH OF THE SIDE 
    // OF THE SQUARE.  (This is stored in size)
    cout << "What is the length of the side of the square?" << endl;
-   cin >> box.side;
-   cout << endl;
+   cin >> size;
 	
    // FILL IN THE CODE THAT CALLS SetSide.
    box.setSide(size);
 
    // FILL IN THE CODE THAT WILL RETURN THE AREA FROM A CALL TO A FUNCTION
-   // AND PRINT OUT THE AREA TO THE SCREEN
-   cout << box.findArea();
+   // AND PRINT OUT THE AREA TO THE SCREEN 
+   cout << "The area of the square is " << box.findArea() << endl;
 
    // FILL IN THE CODE THAT WILL RETURN THE PERIMETER FROM A CALL TO A 
    // FUNCTION AND PRINT OUT THAT VALUE TO THE SCREEN 
-   cout << box.findPerimeter();
+   cout << "The perimeter of the square is " << box.findPerimeter() << endl;
 
 	return 0;
 }
@@ -69,7 +68,7 @@ void Square::setSide(float length)
 // data returned:  area of square
 //***************************************************
 
-float Square::findArea()
+float Square::findArea() const
 {
    return side * side;
 }
@@ -80,7 +79,7 @@ float Square::findArea()
 // data in: none (uses value of data member side)
 // data returned:  perimeter of square
 //***************************************************	
-float Square::findPerimeter()
+float Square::findPerimeter() const
 {
    return 4 * side;
 }

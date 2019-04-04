@@ -7,23 +7,44 @@ using namespace std;
 // THE IMPLEMENTATION SECTION.
 class Square
 {
+    
 private:
 	float side;
 
 public:
+    // Constructors
+    Square ();
+    Square (float length);
+   
+   // Destructor
+   ~Square();
+   
     void setSide(float length);
     float findArea() const;
     float findPerimeter() const;
-   //Square ();
-   //Square (float length);
-   //~Square();
+    
+    Square::Square(float side)
+    {
+        side = 1;
+        
+    }
+    
+    Square::Square(float theSide)
+    {
+        theSide = side;
+        
+    }
+    
+    Square::~Square(){}
 	
 };
 
 int main()
 {
-    Square  box;          // box is defined as an object of the Square class
-    float   size;         // size contains the length of a side of the square  
+    Square box;          // box is defined as an object of the Square class
+    Square box1(9);
+    
+    float size;         // size contains the length of a side of the square  
 
    // FILL IN THE CLIENT CODE THAT WILL ASK THE USER FOR THE LENGTH OF THE SIDE 
    // OF THE SQUARE.  (This is stored in size)
@@ -32,20 +53,33 @@ int main()
 	
    // FILL IN THE CODE THAT CALLS SetSide.
    box.setSide(size);
-
-   // FILL IN THE CODE THAT WILL RETURN THE AREA FROM A CALL TO A FUNCTION
-   // AND PRINT OUT THE AREA TO THE SCREEN 
-   cout << "The area of the square is " << box.findArea() << endl;
-
-   // FILL IN THE CODE THAT WILL RETURN THE PERIMETER FROM A CALL TO A 
-   // FUNCTION AND PRINT OUT THAT VALUE TO THE SCREEN 
-   cout << "The perimeter of the square is " << box.findPerimeter() << endl;
+   
+   // Box Info
+   cout << "The area of the square is " << box.findArea() << "." << endl;
+   cout << "The perimeter of the square is " << box.findPerimeter() << "." << endl;
+   
+   // Box1 Info
+   box1.setSide(size);
+   cout << "The area of box1 is " << box1.findArea() << "." << endl;
+   cout << "The perimeter of box1 is " << box1.findPerimeter() << "." << endl;
 
 	return 0;
-}
+};
 
 //__________________________________________________________________
 //Implementation section     Member function implementation
+
+// void Square::Square()
+// {
+//     side = 1;
+// };
+
+// void Square::Square(float theSide)
+// {
+//     theSide = side;
+// };
+
+// void Square::~Square() {}
 
 //**************************************************
 //                  setSide
@@ -59,7 +93,7 @@ void Square::setSide(float length)
  
 {
    side = length;	
-}
+};
 //**************************************************
 //                 findArea
 //
@@ -71,7 +105,7 @@ void Square::setSide(float length)
 float Square::findArea() const
 {
    return side * side;
-}
+};
 //**************************************************
 //                 findPerimeter
 //
@@ -82,4 +116,4 @@ float Square::findArea() const
 float Square::findPerimeter() const
 {
    return 4 * side;
-}
+};

@@ -12,41 +12,32 @@ private:
 	float side;
 
 public:
-    // Constructors
-    Square ();
-    Square (float length);
-   
-   // Destructor
-   ~Square();
-   
-    void setSide(float length);
-    float findArea() const;
-    float findPerimeter() const;
+    void setSide(float);
+    float findArea();
+    float findPerimeter();
     
-    Square::Square(float side)
+    // Constructors
+    Square ()
     {
         side = 1;
-        
-    }
+    };
     
-    Square::Square(float theSide)
+    Square (float theSide)
     {
-        theSide = side;
-        
-    }
-    
-    Square::~Square(){}
+        side = theSide; // theSide = side does not work
+    };
+   
+   // Destructor
+   ~Square(){};
 	
 };
 
 int main()
 {
     Square box;          // box is defined as an object of the Square class
-    Square box1(9);
+    float size;         // size contains the length of a side of the square
     
-    float size;         // size contains the length of a side of the square  
-
-   // FILL IN THE CLIENT CODE THAT WILL ASK THE USER FOR THE LENGTH OF THE SIDE 
+    // FILL IN THE CLIENT CODE THAT WILL ASK THE USER FOR THE LENGTH OF THE SIDE 
    // OF THE SQUARE.  (This is stored in size)
    cout << "What is the length of the side of the square?" << endl;
    cin >> size;
@@ -57,10 +48,11 @@ int main()
    // Box Info
    cout << "The area of the square is " << box.findArea() << "." << endl;
    cout << "The perimeter of the square is " << box.findPerimeter() << "." << endl;
+    
    
    // Box1 Info
-   box1.setSide(size);
-   cout << "The area of box1 is " << box1.findArea() << "." << endl;
+   Square box1(9);
+   cout << "\nThe area of box1 is " << box1.findArea() << "." << endl;
    cout << "The perimeter of box1 is " << box1.findPerimeter() << "." << endl;
 
 	return 0;
@@ -68,18 +60,6 @@ int main()
 
 //__________________________________________________________________
 //Implementation section     Member function implementation
-
-// void Square::Square()
-// {
-//     side = 1;
-// };
-
-// void Square::Square(float theSide)
-// {
-//     theSide = side;
-// };
-
-// void Square::~Square() {}
 
 //**************************************************
 //                  setSide
@@ -102,7 +82,7 @@ void Square::setSide(float length)
 // data returned:  area of square
 //***************************************************
 
-float Square::findArea() const
+float Square::findArea()
 {
    return side * side;
 };
@@ -113,7 +93,7 @@ float Square::findArea() const
 // data in: none (uses value of data member side)
 // data returned:  perimeter of square
 //***************************************************	
-float Square::findPerimeter() const
+float Square::findPerimeter()
 {
    return 4 * side;
 };
